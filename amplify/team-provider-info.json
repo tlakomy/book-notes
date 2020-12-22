@@ -13,11 +13,11 @@
     },
     "categories": {
       "auth": {
-        "booknotes32ca873b": {
-          "userPoolId": "eu-west-1_WdNT1YGmb",
-          "userPoolName": "booknotesuserpoolF816507D-swHjXVtZ20Ar",
-          "webClientId": "3gfmi8okukb7qvv7ner1le7u42",
-          "nativeClientId": "54ocopfcc6ojp0qekkasrdtcv3"
+        "booknotesf899deda": {
+          "userPoolId": "eu-west-1_b6OWVeqbu",
+          "userPoolName": "booknotesauthbooknotesuserpool0DA3D063-JND9CF04UEzL",
+          "webClientId": "73d9l6tfudks7sbemsr0pt121j",
+          "nativeClientId": "3evp3834vnp5dp3dbb1bk897jj"
         }
       }
     }

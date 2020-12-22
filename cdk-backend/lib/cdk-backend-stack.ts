@@ -1,51 +1,22 @@
 import * as cdk from '@aws-cdk/core';
-import * as cognito from '@aws-cdk/aws-cognito';
+import { Auth } from './constructs/auth';
 
 export class CdkBackendStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    const userPool = new cognito.UserPool(this, 'book-notes-user-pool', {
-      selfSignUpEnabled: true,
-      accountRecovery: cognito.AccountRecovery.PHONE_AND_EMAIL,
-      userVerification: {
-        emailStyle: cognito.VerificationEmailStyle.CODE,
-      },
-      autoVerify: {
-        email: true,
-      },
-      standardAttributes: {
-        email: {
-          required: true,
-          mutable: true,
-        },
-      },
-    });
-
-    // https://docs.amplify.aws/cli/auth/import#import-an-existing-cognito-user-pool
-    const nativeAppClient = new cognito.UserPoolClient(
-      this,
-      'NativeAppClient',
-      {
-        userPool,
-        generateSecret: true,
-      },
-    );
-
-    const webAppClient = new cognito.UserPoolClient(this, 'WebAppClient', {
-      userPool,
-    });
+    const auth = new Auth(this, 'book-notes-auth');
 
     new cdk.CfnOutput(this, 'UserPoolId', {
-      value: userPool.userPoolId,
+      value: auth.userPool.userPoolId,
     });
 
     new cdk.CfnOutput(this, 'WebAppClientId', {
-      value: webAppClient.userPoolClientId,
+      value: auth.webAppClient.userPoolClientId,
     });
 
     new cdk.CfnOutput(this, 'NativeAppClientId', {
-      value: nativeAppClient.userPoolClientId,
+      value: auth.nativeAppClient.userPoolClientId,
     });
   }
 }
