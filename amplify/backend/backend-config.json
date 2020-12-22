@@ -1,0 +1,11 @@
+{
+  "auth": {
+    "booknotes32ca873b": {
+      "service": "Cognito",
+      "serviceType": "imported",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}

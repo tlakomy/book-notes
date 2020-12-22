@@ -1,0 +1,25 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-booknotes-dev-171602-authRole",
+      "UnauthRoleArn": "arn:aws:iam::696785635119:role/amplify-booknotes-dev-171602-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::696785635119:role/amplify-booknotes-dev-171602-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-booknotes-dev-171602-deployment",
+      "UnauthRoleName": "amplify-booknotes-dev-171602-unauthRole",
+      "StackName": "amplify-booknotes-dev-171602",
+      "StackId": "arn:aws:cloudformation:eu-west-1:696785635119:stack/amplify-booknotes-dev-171602/fdfe4ee0-4470-11eb-b776-02ae0fe7ca0d",
+      "AmplifyAppId": "d3u4nztiie1nqs"
+    },
+    "categories": {
+      "auth": {
+        "booknotes32ca873b": {
+          "userPoolId": "eu-west-1_WdNT1YGmb",
+          "userPoolName": "booknotesuserpoolF816507D-swHjXVtZ20Ar",
+          "webClientId": "3gfmi8okukb7qvv7ner1le7u42",
+          "nativeClientId": "54ocopfcc6ojp0qekkasrdtcv3"
+        }
+      }
+    }
+  }
+}
