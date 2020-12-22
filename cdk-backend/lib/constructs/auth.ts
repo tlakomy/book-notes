@@ -45,5 +45,17 @@ export class Auth extends cdk.Construct {
     this.webAppClient = new cognito.UserPoolClient(this, 'WebAppClient', {
       userPool: this.userPool,
     });
+
+    new cdk.CfnOutput(this, 'UserPoolId', {
+      value: this.userPool.userPoolId,
+    });
+
+    new cdk.CfnOutput(this, 'WebAppClientId', {
+      value: this.webAppClient.userPoolClientId,
+    });
+
+    new cdk.CfnOutput(this, 'NativeAppClientId', {
+      value: this.nativeAppClient.userPoolClientId,
+    });
   }
 }
