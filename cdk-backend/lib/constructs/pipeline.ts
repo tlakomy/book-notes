@@ -26,6 +26,7 @@ export class Pipeline extends cdk.Construct {
       synthAction: cdkPipeline.SimpleSynthAction.standardNpmSynth({
         sourceArtifact,
         cloudAssemblyArtifact,
+        subdirectory: 'cdk-backend',
         buildCommand: 'npm run build',
       }),
     });
