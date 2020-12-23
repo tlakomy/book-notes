@@ -12,9 +12,22 @@ export class Pipeline extends cdk.Construct {
     const sourceArtifact = new codePipeline.Artifact();
     const cloudAssemblyArtifact = new codePipeline.Artifact();
 
-    // const pipeline = new cdkPipeline.CdkPipeline(this, 'Pipeline', {
-    //   pipelineName: 'BookNotesPipeline',
-    //   cloudAssemblyArtifact,
-    // });
+    const pipeline = new cdkPipeline.CdkPipeline(this, 'Pipeline', {
+      pipelineName: 'BookNotesPipeline',
+      cloudAssemblyArtifact,
+      sourceAction: new codePipelineActions.GitHubSourceAction({
+        actionName: 'GitHub',
+        output: sourceArtifact,
+        oauthToken: cdk.SecretValue.secretsManager('GithubToken'),
+        owner: 'tlakomy',
+        repo: 'book-notes',
+        branch: 'main',
+      }),
+      synthAction: cdkPipeline.SimpleSynthAction.standardNpmSynth({
+        sourceArtifact,
+        cloudAssemblyArtifact,
+        buildCommand: 'npm run build',
+      }),
+    });
   }
 }
