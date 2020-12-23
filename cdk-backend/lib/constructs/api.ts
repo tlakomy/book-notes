@@ -18,6 +18,7 @@ export class Api extends cdk.Construct {
           authorizationType: appsync.AuthorizationType.API_KEY,
         },
       },
+      xrayEnabled: true,
     });
 
     new cdk.CfnOutput(this, 'GraphQLAPIURL', {
